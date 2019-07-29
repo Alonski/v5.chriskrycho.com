@@ -1,3 +1,28 @@
 {% extends 'item.njk' %}
 
 {% block title_meta %}Chris Krycho{% endblock title_meta %}
+
+{%- block extra_styles %}
+<link rel='stylesheet' type='text/css' media='screen' href='/index.css'>
+{% endblock extra_styles -%}
+
+{%- block before_content -%}
+   <picture class='headshot'>
+      <source srcset='{{headshot.sm_1x}}' media='(-webkit-max-device-pixel-ratio: 1), (max-resolution: 192dpi)' />
+      <source srcset='{{headshot.sm_2x}}' media='(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)' />
+      <source srcset='{{headshot.lg_1x}}' media='(min-width: 768px)' />
+      <source srcset='{{headshot.lg_2x}}' media='(min-width: 768px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)' />
+      <img src='{{headshot.sm_1x}}' alt='a candid picture of Chris in a gray sweater' />
+   </picture>
+{%- endblock before_content %}
+
+{# {%- block main -%}
+<article>
+   {% block header -%}{%- endblock header %}
+   {% block before_content %}{% endblock before_content %}
+   {% block article_content -%}
+      <div class='article-content'>{{content | safe}}</div>
+   {%- endblock article_content %}
+   {% block after_content %}{% endblock after_content %}
+</article>
+{%- endblock main -%} #}
