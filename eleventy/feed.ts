@@ -128,7 +128,13 @@ function contentHtmlFor(item: Item): string {
    const book = item.data?.book
    const bookInfo = isBook(book) ? describe(book) : ''
 
-   return subtitle + audience + epistemicStatus + bookInfo + item.templateContent
+   const tags =
+      item.data?.tags
+         ?.join(', ')
+         .replace(/^/, '<i><b>Tagged:</b> ')
+         .concat('</i>') ?? ''
+
+   return subtitle + tags + audience + epistemicStatus + bookInfo + item.templateContent
 }
 
 function titleFor(item: Item): string | undefined {
